@@ -15,6 +15,7 @@
 mod abandon;
 mod absorb;
 mod arrange;
+mod alias;
 #[cfg(feature = "bench")]
 mod bench;
 mod bisect;
@@ -99,6 +100,8 @@ enum Command {
     #[command(subcommand)]
     Bench(bench::BenchCommand),
     #[command(subcommand)]
+    Alias(alias::AliasCommand),
+    #[command(subcommand)]
     Bisect(bisect::BisectCommand),
     #[command(subcommand)]
     Bookmark(bookmark::BookmarkCommand),
@@ -174,6 +177,7 @@ pub async fn run_command(ui: &mut Ui, command_helper: &CommandHelper) -> Result<
         Command::Absorb(args) => absorb::cmd_absorb(ui, command_helper, args).await,
         #[cfg(feature = "bench")]
         Command::Bench(args) => bench::cmd_bench(ui, command_helper, args).await,
+        Command::Alias(args) => alias::cmd_alias(ui, command_helper, args).await,
         Command::Bisect(args) => bisect::cmd_bisect(ui, command_helper, args).await,
         Command::Bookmark(args) => bookmark::cmd_bookmark(ui, command_helper, args).await,
         Command::Commit(args) => commit::cmd_commit(ui, command_helper, args).await,
