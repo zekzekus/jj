@@ -15,6 +15,8 @@ This document contains the help content for the `jj` command-line program.
 * [`jj abandon`↴](#jj-abandon)
 * [`jj absorb`↴](#jj-absorb)
 * [`jj arrange`↴](#jj-arrange)
+* [`jj alias`↴](#jj-alias)
+* [`jj alias list`↴](#jj-alias-list)
 * [`jj bisect`↴](#jj-bisect)
 * [`jj bisect run`↴](#jj-bisect-run)
 * [`jj bookmark`↴](#jj-bookmark)
@@ -145,6 +147,7 @@ To get started, see the tutorial [`jj help -k tutorial`].
 * `abandon` — Abandon a revision
 * `absorb` — Move changes from a revision into the stack of mutable revisions
 * `arrange` — Interactively arrange the commit graph
+* `alias` — Manage command aliases
 * `bisect` — Find a bad revision by bisection
 * `bookmark` — Manage bookmarks [default alias: b]
 * `commit` — Update the description and create a new change on top [default alias: ci]
@@ -295,6 +298,32 @@ Interactively arrange the commit graph
 * `-r`, `--revisions <REVSETS>` — The revisions to edit.
 
    If no revisions are specified, this defaults to the `revsets.arrange` setting, or `reachable(@, mutable())` if it is not set.
+
+
+
+## `jj alias`
+
+Manage command aliases
+
+Display and manage command aliases from configuration.
+
+**Usage:** `jj alias <COMMAND>`
+
+###### **Subcommands:**
+
+* `list` — List all available aliases
+
+
+
+## `jj alias list`
+
+List all available aliases
+
+Display all command aliases organized by source, including: - Builtin aliases from jj's code - Default aliases from the built-in configuration - User-defined aliases from configuration files
+
+**Usage:** `jj alias list`
+
+**Command Alias:** `l`
 
 
 
